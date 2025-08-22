@@ -51,7 +51,7 @@ class ChannelTalkFlutterHandler implements ChannelPluginListener {
     @Override
     public boolean onUrlClicked(String url) {
         channel.invokeMethod("onUrlClicked", url);
-        return false;
+        return true;
     }
 
     @Override
