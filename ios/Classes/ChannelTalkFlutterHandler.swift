@@ -36,7 +36,7 @@ public class ChannelTalkFlutterHandler: NSObject, ChannelPluginDelegate {
 
     public func onUrlClicked(url: URL) -> Bool {
         channel.invokeMethod("onUrlClicked", arguments: url.absoluteString)
-        return false
+        return true
     }
 
     public func onPopupDataReceived(event: PopupData) {
