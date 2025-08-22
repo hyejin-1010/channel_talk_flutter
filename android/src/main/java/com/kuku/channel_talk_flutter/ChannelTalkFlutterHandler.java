@@ -67,7 +67,7 @@ class ChannelTalkFlutterHandler implements ChannelPluginListener {
     @Override
     public boolean onPushNotificationClicked(String chatId) {
         channel.invokeMethod("onPushNotificationClicked", chatId);
-        return false;
+        return true;
     }
 
 }
