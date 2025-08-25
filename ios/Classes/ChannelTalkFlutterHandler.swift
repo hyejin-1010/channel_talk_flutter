@@ -35,6 +35,8 @@ public class ChannelTalkFlutterHandler: NSObject, ChannelPluginDelegate {
     }
 
     public func onUrlClicked(url: URL) -> Bool {
+        if (!url.absoluteString.contains("gada.worksmate.co.kr")) return false
+
         DispatchQueue.main.async { [weak self] in
             ChannelIO.hideMessenger()
             ChannelIO.hidePopup()
