@@ -51,8 +51,14 @@ class ChannelTalkFlutterHandler implements ChannelPluginListener {
 
     @Override
     public boolean onUrlClicked(String url) {
-        ChannelIO.hideMessenger();
-        ChannelIO.hidePopup();
+        android.os.Handler mainHandler = new android.os.Handler(android.os.Looper.getMainLooper());
+        mainHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                ChannelIO.hideMessenger();
+                ChannelIO.hidePopup();
+            }
+        });
         channel.invokeMethod("onUrlClicked", url);
         return true;
     }
