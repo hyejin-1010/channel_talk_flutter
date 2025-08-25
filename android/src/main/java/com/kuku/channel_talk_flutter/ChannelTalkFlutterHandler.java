@@ -51,15 +51,21 @@ class ChannelTalkFlutterHandler implements ChannelPluginListener {
 
     @Override
     public boolean onUrlClicked(String url) {
+        System.out.println("heidi test 01");
         android.os.Handler mainHandler = new android.os.Handler(android.os.Looper.getMainLooper());
+        System.out.println("heidi test 02");
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
+                System.out.println("heidi test 03");
                 ChannelIO.hideMessenger();
                 ChannelIO.hidePopup();
+                System.out.println("heidi test 04");
+                channel.invokeMethod("onUrlClicked", url);
+                System.out.println("heidi test 05");
             }
         });
-        channel.invokeMethod("onUrlClicked", url);
+        System.out.println("heidi test 06");
         return true;
     }
 
