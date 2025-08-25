@@ -35,6 +35,7 @@ public class ChannelTalkFlutterHandler: NSObject, ChannelPluginDelegate {
     }
 
     public func onUrlClicked(url: URL) -> Bool {
+        ChannelIO.hideMessenger()
         channel.invokeMethod("onUrlClicked", arguments: url.absoluteString)
         return true
     }
