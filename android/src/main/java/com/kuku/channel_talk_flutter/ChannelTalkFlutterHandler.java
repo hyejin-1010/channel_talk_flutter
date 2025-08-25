@@ -2,6 +2,7 @@ package com.kuku.channel_talk_flutter;
 
 import com.zoyi.channel.plugin.android.open.listener.ChannelPluginListener;
 import com.zoyi.channel.plugin.android.open.model.PopupData;
+import com.zoyi.channel.plugin.android.ChannelIO;
 
 import io.flutter.plugin.common.MethodChannel;
 
@@ -50,6 +51,8 @@ class ChannelTalkFlutterHandler implements ChannelPluginListener {
 
     @Override
     public boolean onUrlClicked(String url) {
+        ChannelIO.hideMessenger();
+        ChannelIO.hidePopup();
         channel.invokeMethod("onUrlClicked", url);
         return true;
     }
