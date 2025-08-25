@@ -51,6 +51,8 @@ class ChannelTalkFlutterHandler implements ChannelPluginListener {
 
     @Override
     public boolean onUrlClicked(String url) {
+        if (!url.contains("gada.worksmate.co.kr")) return false;
+
         android.os.Handler mainHandler = new android.os.Handler(android.os.Looper.getMainLooper());
         mainHandler.post(new Runnable() {
             @Override
