@@ -35,11 +35,16 @@ public class ChannelTalkFlutterHandler: NSObject, ChannelPluginDelegate {
     }
 
     public func onUrlClicked(url: URL) -> Bool {
+        print("heidi test 01")
         DispatchQueue.main.async {
+            print("heidi test 02")
             ChannelIO.hideMessenger()
             ChannelIO.hidePopup()
+            print("heidi test 03")
+            channel.invokeMethod("onUrlClicked", arguments: url.absoluteString)
+            print("heidi test 04")
         }
-        channel.invokeMethod("onUrlClicked", arguments: url.absoluteString)
+        print("heidi test 05")
         return true
     }
 
